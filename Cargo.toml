@@ -1,0 +1,29 @@
+[package]
+name = "mavlink-extras"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bytes = "1.4.0"
+crc-any = "2.4.3"
+futures = "0.3.26"
+mavlink = "0.10.1"
+serde = { version = "1.0.152", optional = true }
+serde_arrays = "0.1.0"
+tokio = { version = "1.25.0", features = ["net", "time", "rt", "macros"] }
+tokio-serial = "5.4.4"
+tokio-util = { version = "0.7.7", features = ["codec", "net"] }
+tracing = "0.1.37"
+
+[features]
+serde = ["dep:serde", "mavlink/serde"]
+
+[workspace]
+members = ["mavlink-echo"]
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true

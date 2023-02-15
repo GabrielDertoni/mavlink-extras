@@ -1,0 +1,16 @@
+[package]
+name = "mavlink-echo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.69"
+mavlink = { version = "0.10.1", features = ["common"], default-features = false }
+mavlink-extras = { path = "..", features = ["serde"] }
+paw = "1.0.0"
+serde = "1.0.152"
+serde_json = "1.0.93"
+structopt = { version = "0.3.26", features = ["color", "paw"] }
+tokio = { version = "1.25.0", features = ["rt", "macros"] }
